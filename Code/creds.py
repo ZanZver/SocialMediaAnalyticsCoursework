@@ -1,0 +1,5 @@
+bot_username = "username"
+bot_pass = "pass"
+bot_ID = "ID"
+bot_token = "token"
+bot_g_type = "password"
