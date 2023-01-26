@@ -1,10 +1,11 @@
 from creds import bot_username, bot_pass, bot_ID, bot_token, bot_g_type
 
 import requests
-#import pprint
 import json
-import ast
 import time
+import os
+
+from py2neo import Graph, Node, Relationship
 
 def login():
     # note that CLIENT_ID refers to 'personal use script' and SECRET_TOKEN to 'token'
@@ -61,9 +62,19 @@ def formatData(outData):
     
     return(listOfDicts)
     
-    
+def insertNeo4j():
+    g = Graph('http://localhost:7474/db/data', auth=("neo4j", "password"))
+    a = Node("Person", name="Bob", age=44)
+    b = Node("Person", name="Bil", age=22)
+    KNOWS = Relationship.type("KNOWS")
+    g.merge(KNOWS(a, b), "Person", "name")
+
+'''    
 logged_headers = login()
 json_data = getData(logged_headers)
 someItems = formatData(json_data)
 json_formatted_str = json.dumps(someItems, indent=4)
 print(json_formatted_str)
+'''
+
+insertNeo4j()
