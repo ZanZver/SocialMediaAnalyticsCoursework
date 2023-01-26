@@ -69,12 +69,11 @@ def insertNeo4j():
     KNOWS = Relationship.type("KNOWS")
     g.merge(KNOWS(a, b), "Person", "name")
 
-'''    
+#'''    
 logged_headers = login()
 json_data = getData(logged_headers)
 someItems = formatData(json_data)
 json_formatted_str = json.dumps(someItems, indent=4)
 print(json_formatted_str)
-'''
-
-insertNeo4j()
+#'''
+#insertNeo4j()
