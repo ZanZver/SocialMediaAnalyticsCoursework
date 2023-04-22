@@ -1,5 +1,6 @@
 
 .DS_Store
+*/creds.py
 Code/creds.py
 Code/Docker/data/databases/graph.db/*
 Code/Docker/data/databases/*
@@ -8,4 +9,7 @@ Code/Docker/logs/*
 Code/Python/creds.py
 Code/Python/__pycache__/creds.cpython-38.pyc
 Code/Python/creds.py
-*/creds.py
+Code/Python/LinkedIn/creds.py
+Code/Python/Reddit/creds.py
+Code/Crypto/MultiBlocks/*
+*.pyc

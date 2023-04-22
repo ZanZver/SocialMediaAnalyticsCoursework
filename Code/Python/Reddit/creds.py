@@ -1,5 +1,0 @@
-bot_username = "bot_username"
-bot_pass = "bot_pass"
-bot_ID = "bot_ID"
-bot_token = "bot_token"
-bot_g_type = "password"
