@@ -13,3 +13,8 @@ Code/Python/LinkedIn/creds.py
 Code/Python/Reddit/creds.py
 Code/Crypto/MultiBlocks/*
 *.pyc
+Data/Reddit/l2.csv
+.vscode/settings.json
+test.py
+Data/Reddit/l3.csv
+creds.py
