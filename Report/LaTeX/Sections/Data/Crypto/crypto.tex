@@ -1,0 +1,40 @@
+\subsection{Crypto}\label{Crypto}
+
+In order to get crypto currency data, Etherscan API \parencite{web:Etherscan} was used. The usage is free for 5 calls per second and maximum of 100000 calls per day (in total).
+
+Data is delivered in hexadecimal (eg 0x0FF) format, therefore everything is saved as a string by default. In the program, this is changed to the correct data type. After transformation, some of the data (eg From, To) would still not be as clear due to data being cryptic.
+
+\begin{landscape}
+    \begin{center}
+    \begin{table}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        baseFeePerGas & difficulty & extraData & gasLimit & gasUsed \\
+        String & String & String & String & String\\
+        \hline
+        hash & logsBloom & miner & mixHash & nonce \\
+        String & String & String & String & String\\
+        \hline
+        number & parentHash & receiptsRoot & sha3Uncles & \cellcolor{green} size \\
+        String & String & String & String & \cellcolor{green} String\\
+        \hline
+        stateRoot & timestamp & totalDifficulty & \cellcolor{green} transactions & blockHash \\
+        String & String & String & \cellcolor{green} String & String\\
+        \hline
+        blockNumber & \cellcolor{green} from & \cellcolor{green} gas & \cellcolor{green} gasPrice & maxFeePerGas \\
+        String & \cellcolor{green} String & \cellcolor{green} String & \cellcolor{green} String & String\\
+        \hline
+        maxPriorityFeePerGas & hash & input & nonce & \cellcolor{green} to \\
+        String & String & String & String & \cellcolor{green} String\\
+        \hline
+        transactionIndex & \cellcolor{green} value & type & accessList & chainId \\
+        String & \cellcolor{green} String & String & String & String\\
+        \hline
+        v & r & s & jsonrpc & id \\
+        String & String & String & String & String\\
+        \hline
+      \end{tabular}
+      \caption{Crypto attributes used}
+      \end{table}
+    \end{center}
+\end{landscape}

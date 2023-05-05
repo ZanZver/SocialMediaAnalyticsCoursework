@@ -1,0 +1,74 @@
+\subsection{Reddit}\label{Reddit}
+
+Reddit API \parencite{web:Reddit} is free to use (in the time of writing) and it only requires user to create an account. There are different datasets available as well, for this report subredit datasets have been used in order to get specific set of data. 
+
+Topics (subredits) that were checked are crypto related (r/eth, r/btc, r/crypto). Data is gathered in two ways for each of the subreddits, by new and top in order to see the difference between them.
+
+The Reddit data is used in two sections (A1, B1). Section A1 focuses in data analysis, therefore data with numeric properties was prioritised. B1 focuses on text analytic, therefore only text data is used. Figures bellow showcase what columns are used in each section
+%\subsubsection{A1}\label{A1}
+\begin{landscape}
+    \begin{center}
+    \begin{table}
+    %\caption{Reddit attributes used for data analysis}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Author & Author is blocked & Awarders & Banned at utc & Banned by \\
+        String & Bool & List & Date time & String\\
+        \hline
+        Can gild & Category & \cellcolor{green} Created utc & Downs & Edited \\
+        Bool & String & \cellcolor{green} Date time & Int & Bool \\
+        \hline
+        Is crosspostable & Is video & Locked & Mod note & Mod reason by \\
+        Bool & Bool & Bool & String & String \\
+        \hline
+        Mod reason title & Mod reports & \cellcolor{green} Number of comments & \cellcolor{green} Number of crossposts & \cellcolor{green} Number of duplicates \\
+        String & String & \cellcolor{green} Int & \cellcolor{green} Int & \cellcolor{green} Int \\
+        \hline
+        Number of reports & Over 18 & Removal reason & Removed by & Removed by category \\
+        Int & Bool & String & String & String \\
+        \hline
+        Score & Selftext & Spoiler & Title & Top awarded type \\
+        Int & String & Bool & String & String \\
+        \hline
+        \cellcolor{green} Total awards received & \cellcolor{green} Ups & Upvote ratio & URL & User reports \\
+        \cellcolor{green} Int & \cellcolor{green} Int & Float & String & List \\
+        \hline
+      \end{tabular}
+      \caption{Reddit attributes used for data analysis}
+      \end{table}
+    \end{center}
+\end{landscape}
+
+\begin{landscape}
+%\subsubsection{B1}\label{B1}
+    \begin{center}
+    \begin{table}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Author & Author is blocked & Awarders & Banned at utc & Banned by \\
+        String & Bool & List & Date time & String\\
+        \hline
+        Can gild & Category & Created utc & Downs & Edited \\
+        Bool & String & Date time & Int & Bool \\
+        \hline
+        Is crosspostable & Is video & Locked & Mod note & Mod reason by \\
+        Bool & Bool & Bool & String & String \\
+        \hline
+        Mod reason title & Mod reports & Number of comments & Number of crossposts & Number of duplicates \\
+        String & String & Int & Int & Int \\
+        \hline
+        Number of reports & Over 18 & Removal reason & Removed by & Removed by category \\
+        Int & Bool & String & String & String \\
+        \hline
+        Score & \cellcolor{green} Selftext & Spoiler & Title & Top awarded type \\
+        Int & \cellcolor{green} String & Bool & String & String \\
+        \hline
+        Total awards received & Ups & Upvote ratio & URL & User reports \\
+        Int & Int & Float & String & List \\
+        \hline
+      \end{tabular}
+      \caption{Reddit attributes used for text analysis}
+      \end{table}
+    \end{center}
+\end{landscape}
+

@@ -1,0 +1,137 @@
+\subsection{B1}\label{B1}
+
+In order to analyse the data, 3 subreddits were used with 2 filters applied. Table bellow showcases them
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    Subreddit & Top & New \\
+    \hline
+    Ethereum & $\checkmark$ & $\checkmark$ \\
+    \hline
+    Bitcoin & $\checkmark$ & $\checkmark$ \\
+    \hline
+    CryptoCurrency & $\checkmark$ & $\checkmark$ \\
+    \hline
+\end{tabular}
+\end{center}
+
+\begin{table}[htbp]
+\caption{Subreddit data filter}
+\label{tab:Subreddits}
+\end{table}
+
+
+\begin{landscape}
+Investigating top words, we can see that Ethereum is top mentioned word, but bitcoin is there as well. This is not surprising since bitcoin is the most popular (and well known) crypto currency. Besides that, there are other related words such as NFT, blockchain, fee, etc... that are used in the context of crypto currency topics.
+
+\begin{figure}[H]
+\includegraphics[scale=0.55]{img/B1/top_eth_wordcloud.png}
+\centering
+\caption{Top r/Ethereum wordcloud}
+\label{fig:top_eth_wordcloud}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+Reflecting to new data, Ethereum is still the top mentioned world (alongside blockchain and NFT). There are some new words that are introduced such as web3 and stake due to change of direction Ethereum is heading.
+
+\begin{figure}[H]
+\includegraphics[scale=0.55]{img/B1/new_eth_wordcloud.png}
+\centering
+\caption{New r/Ethereum wordcloud}
+\label{fig:new_eth_wordcloud}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+Top word for bitcoin is bitcoin and there aren't any other crypto currencies mentioned. There is mention of author (Satoshi) and positive influence of buy, get, go, which could imply users saying "buy bitcoin now". Sell is also mentioned but not as much as buy.
+
+\begin{figure}[H]
+\includegraphics[scale=0.55]{img/B1/top_btc_wordcloud.png}
+\centering
+\caption{Top r/Bitcoin wordcloud}
+\label{fig:top_btc_wordcloud}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+Trends continues with new words, it is in similar domain. Bitcoin is top mentioned, buy is there as well, and price is mentioned. This could imply the same message as the top words form above.
+
+\begin{figure}[H]
+\includegraphics[scale=0.55]{img/B1/new_btc_wordcloud.png}
+\centering
+\caption{New r/Bitcoin wordcloud}
+\label{fig:new_btc_wordcloud}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+Top crypto topics seems to be around crypto currencies and bitcoin sits on top. Ethereum is there as well but not as popular. Based on the words (market, price, monkey, worth) it seems this is more of a discussion regarding crypto value and not advice regarding selling or buying (but there is mention of sell).
+
+\begin{figure}[H]
+\includegraphics[scale=0.55]{img/B1/top_cry_wordcloud.png}
+\centering
+\caption{Top r/CryptoCurrency wordcloud}
+\label{fig:top_cry_wordcloud}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+New worldcloud has the similar structure as top. Main topics are still crypto, bitcoin and Ethereum but there are new topic on horisen such as sec and Gensler (head of sec) due to new rules of crypto markets.
+
+\begin{figure}[H]
+\includegraphics[scale=0.55]{img/B1/new_cry_wordcloud.png}
+\centering
+\caption{New r/CryptoCurrency wordcloud}
+\label{fig:new_cry_wordcloud}
+\end{figure}
+\end{landscape}
+
+Creating sentiment analysis on Ethereum subreddit shows overall positive approach of messages posted.
+\begin{figure}[H]
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{img/B1/top_eth_sentiment.png}
+    \caption{Top r/Ethereum sentiment}
+    \label{fig:top_eth_sentiment}
+  \end{subfigure}
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{img/B1/new_eth_sentiment.png}
+    \caption{New r/Ethereum sentiment}
+    \label{fig:new_eth_sentiment}
+  \end{subfigure}
+  \caption{Comparison of r/Ethereum sentiment}
+  \label{fig:eth_sentiment}
+\end{figure}
+
+Looking over to bitcoin subreddit, it is similar in therms of top posts but new posts seems to be more on negative side.
+\begin{figure}[H]
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{img/B1/top_btc_sentiment.png}
+    \caption{Top r/Bitcoin sentiment}
+    \label{fig:top_btc_sentiment}
+  \end{subfigure}
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{img/B1/new_btc_sentiment.png}
+    \caption{New r/Bitcoin sentiment}
+    \label{fig:new_btc_sentiment}
+  \end{subfigure}
+  \caption{Comparison of r/Bitcoin sentiment}
+  \label{fig:btc_sentiment}
+\end{figure}
+
+Crypto currency subreddit seems to have the most negative observations. This is in terms of top posts and new.
+\begin{figure}[H]
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{img/B1/top_cry_sentiment.png}
+    \caption{Top r/CryptoCurrency sentiment}
+    \label{fig:top_cry_sentiment}
+  \end{subfigure}
+  \begin{subfigure}{0.48\linewidth}
+    \includegraphics[width=\linewidth]{img/B1/new_cry_sentiment.png}
+    \caption{New r/CryptoCurrency sentiment}
+    \label{fig:new_cry_sentiment}
+  \end{subfigure}
+  \caption{Comparison of r/CryptoCurrency sentiment}
+  \label{fig:cry_sentiment}
+\end{figure}
