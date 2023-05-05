@@ -1,0 +1,8 @@
+bot_username = ""
+bot_pass = ""
+bot_ID = ""
+bot_token = ""
+bot_g_type = "password"
+API_Key = ""
+urlBase = "https://api.etherscan.io/api"
+news_api_key = ""
