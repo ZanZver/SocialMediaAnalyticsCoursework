@@ -7,12 +7,9 @@ In order to have just alpha numeric characters in our dataset, custom regex func
 def apply_regex(data_frame):
     pattern = r'[^a-zA-Z0-9 ]'
 
-    data_frame['title'] = data_frame['title']
-                            .apply(lambda x: re.sub(pattern, '', x))
-    data_frame['description'] = data_frame['description']
-                            .apply(lambda x: re.sub(pattern, '', x))
-    data_frame['content'] = data_frame['content']
-                            .apply(lambda x: re.sub(pattern, '', x))
+    for column in ['title', 'description', 'content']:
+        data_frame[column] = data_frame[column].apply(lambda x: re.sub(pattern, '', x))
+
     return data_frame
 \end{minted}
 \end{listing}
@@ -24,12 +21,8 @@ In text processing, we can remove stop words \parencite{vijayarani2015preprocess
 def remove_stopwords(df):
     stop_words = set(stopwords.words('english'))
 
-    df['title'] = df['title'].apply(lambda x: ' '
-    .join([word for word in x.split() if word.lower() not in stop_words]))
-    df['description'] = df['description'].apply(lambda x: ' '
-    .join([word for word in x.split() if word.lower() not in stop_words]))
-    df['content'] = df['content'].apply(lambda x: ' '
-    .join([word for word in x.split() if word.lower() not in stop_words]))
+    for column in ['title', 'description', 'content']:
+        df[column] = df[column].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in stop_words]))
 
     return df
 \end{minted}
@@ -42,12 +35,9 @@ If we want to reduce words to its root, we can apply stemming function \parencit
 def apply_stemming(df):
     stemmer = PorterStemmer()
 
-    df['title'] = df['title'].apply(lambda x: ' '
-    .join([stemmer.stem(word) for word in word_tokenize(x)]))
-    df['description'] = df['description'].apply(lambda x: ' '
-    .join([stemmer.stem(word) for word in word_tokenize(x)]))
-    df['content'] = df['content'].apply(lambda x: ' '
-    .join([stemmer.stem(word) for word in word_tokenize(x)]))
+    for column in ['title', 'description', 'content']:
+        df[column] = df[column].apply(lambda x: ' '.join([stemmer.stem(word) for word in word_tokenize(x)]))
+
 
     return df
 \end{minted}
@@ -60,12 +50,9 @@ On the other hand, if we want to apply lemmatization \parencite{plisson2004rule}
 def apply_lemmatization(df):
     lemmatizer = WordNetLemmatizer()
 
-    df['title'] = df['title'].apply(lambda x: ' '
-    .join([lemmatizer.lemmatize(word) for word in word_tokenize(x)]))
-    df['description'] = df['description'].apply(lambda x: ' '
-    .join([lemmatizer.lemmatize(word) for word in word_tokenize(x)]))
-    df['content'] = df['content'].apply(lambda x: ' '
-    .join([lemmatizer.lemmatize(word) for word in word_tokenize(x)]))
+    for column in ['title', 'description', 'content']:
+        df[column] = df[column].apply(lambda x: ' '.join([lemmatizer.lemmatize(word) for word in word_tokenize(x)]))
+
 
     return df
 \end{minted}
@@ -79,15 +66,9 @@ def apply_stemming_and_lemmatization(df):
     stemmer = PorterStemmer()
     lemmatizer = WordNetLemmatizer()
 
-    df['title'] = df['title'].apply(lambda x: ' '
-    .join([lemmatizer.lemmatize(stemmer.stem(word)) 
-    for word in word_tokenize(x)]))
-    df['description'] = df['description'].apply(lambda x: ' '
-    .join([lemmatizer.lemmatize(stemmer.stem(word)) 
-    for word in word_tokenize(x)]))
-    df['content'] = df['content'].apply(lambda x: ' '
-    .join([lemmatizer.lemmatize(stemmer.stem(word)) 
-    for word in word_tokenize(x)]))
+    for column in ['title', 'description', 'content']:
+        df[column] = df[column].apply(lambda x: ' '.join([lemmatizer.lemmatize(stemmer.stem(word)) for word in word_tokenize(x)]))
+
 
     return df
 \end{minted}
@@ -105,17 +86,16 @@ def discover_topics(df, num_topics=5, num_words=10):
     dictionary = Dictionary(tokens)
     corpus = [dictionary.doc2bow(doc) for doc in tokens]
 
-    lda_model = LdaModel(corpus=corpus,
-                         id2word=dictionary,
-                         num_topics=num_topics,
-                         random_state=100,
-                         chunksize=100,
-                         passes=10,
-                         alpha='auto',
+    lda_model = LdaModel(corpus=corpus,\
+                         id2word=dictionary,\
+                         num_topics=num_topics,\
+                         random_state=100,\
+                         chunksize=100,\
+                         passes=10,\
+                         alpha='auto',\
                          per_word_topics=True)
 
-    topics = lda_model.show_topics
-    (num_topics=num_topics, num_words=num_words, formatted=False)
+    topics = lda_model.show_topics(num_topics=num_topics, num_words=num_words, formatted=False)
 
     topics_df = pd.DataFrame(columns=['topic_words'])
 
@@ -123,8 +103,7 @@ def discover_topics(df, num_topics=5, num_words=10):
         topic_id = topic[0]
         topic_words = [word[0] for word in topic[1]]
         topic_words = ', '.join(topic_words)
-        topics_df = topics_df.append
-        ({'topic_words': topic_words}, ignore_index=True)
+        topics_df = topics_df.append({'topic_words': topic_words}, ignore_index=True)
 
     return topics_df
 \end{minted}
